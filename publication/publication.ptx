@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<publication>
+  <common>
+    <!-- One web page per section (part = 1, chapter = 2, section = 3) -->
+    <chunking level="3" />
+    <tableofcontents level="3" />
+  </common>
+  <html>
+    <platform host="web" />
+    <baseurl href="https://jacobdarouse.github.io/foundations-of-programming-with-javascript/" />
+    <!-- Code boxes and checkpoint questions start closed; click to open -->
+    <knowl project="yes" exercise-inline="yes" />
+  </html>
+</publication>

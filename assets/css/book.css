@@ -1,0 +1,6 @@
+/* Keep Runestone code boxes inside the "Try It" boxes. The theme lets
+   code boxes run wider than the text, which spills over a knowl's border. */
+.knowl__content .ptx-runestone-container {
+  width: auto;
+  max-width: 100%;
+}

@@ -1,0 +1,7 @@
+output/
+generated-assets/
+.cache/
+.error_schema.log
+cli.log
+__pycache__/
+logs/

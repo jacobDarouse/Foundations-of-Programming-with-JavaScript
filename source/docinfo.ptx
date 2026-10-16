@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<docinfo>
+  <document-id>fopjs</document-id>
+  <blurb>An interactive JavaScript textbook for high school, adapted from Foundations of Python Programming.</blurb>
+  <directories external="../assets" generated="../generated-assets" />
+  <rename element="activity" xml:lang="en-US">Try It</rename>
+  <defaults>
+    <programs language="javascript" />
+  </defaults>
+</docinfo>
