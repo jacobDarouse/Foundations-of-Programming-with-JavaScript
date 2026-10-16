@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Optional chapter in the Loops unit. Adapted from FOPP "The for Loop"
+     (Python's for-in) and "Lists and for loops". GNU FDL 1.3; see for-loops/ch-loops.ptx. -->
+<chapter xml:id="ch-for-of">
+  <title>Optional: The <c>for...of</c> Loop</title>
+  <introduction>
+
+    <p>
+      When you loop over an array, you often only care about the elements, not their indexes.
+      JavaScript has a shorter loop for that, called <c>for...of</c>.
+    </p>
+
+    <activity xml:id="try-forof-1">
+      <title>Invitations with <c>for...of</c></title>
+      <program xml:id="ac-forof-1" interactive="activecode" language="javascript">
+      <code>
+  let friends = ["Joe", "Amy", "Brad", "Zuki"];
+
+  for (const friend of friends) {
+    console.log("Hi " + friend + ", please come to my party on Saturday!");
+  }
+      </code>
+    </program>
+    </activity>
+
+    <p>
+      This does the same thing as the counting loop from <xref ref="sec-arrays-by-index"/>.
+      Here is how it works:
+    </p>
+
+    <ul>
+      <li><p><c>friends</c> is the array to loop over.</p></li>
+      <li><p><c>friend</c> is the loop variable. On each pass, it holds the next <em>element</em>, not an index. First <c>"Joe"</c>, then <c>"Amy"</c>, and so on.</p></li>
+      <li><p>There is no start, condition, or update to write. The loop runs once per element and stops by itself.</p></li>
+      <li><p>We can use <c>const</c> here, because each pass gets a brand new <c>friend</c> variable.</p></li>
+    </ul>
+  </introduction>
+
+  <section xml:id="sec-for-of-which">
+    <title>Which Loop Should You Use?</title>
+
+    <p>
+      Use <c>for...of</c> when you only need to read each element.
+      Use the counting <c>for</c> loop when you need any of these:
+    </p>
+
+    <ul>
+      <li><p>the index itself (for example, to print <q>Item 3 of 10</q>)</p></li>
+      <li><p>to <em>change</em> the elements of the array, since <c>array[i] = ...</c> needs <c>i</c></p></li>
+      <li><p>to count something that is not an array, like 1 to 100</p></li>
+      <li><p>to count down, or to skip elements</p></li>
+    </ul>
+
+    <p>
+      Changing the loop variable in a <c>for...of</c> loop does <em>not</em> change the array.
+      Try it below: the array is the same after the loop.
+    </p>
+
+    <activity xml:id="try-forof-2">
+      <title>Changing the Loop Variable</title>
+      <program xml:id="ac-forof-2" interactive="activecode" language="javascript">
+      <code>
+let prices = [4, 10, 7];
+
+for (let price of prices) {
+  price = price + 1;
+}
+
+console.log(prices);
+      </code>
+    </program>
+    </activity>
+
+    <p>
+      That is why the tests in this course, and most of the code quizzes, use the counting <c>for</c> loop.
+      Make sure you know that one first.
+    </p>
+  </section>
+
+  <section xml:id="sec-for-of-naming">
+    <title>Naming the Loop Variable</title>
+
+    <p>
+      In a <c>for...of</c> loop, name the loop variable with the singular of the array name:
+      <c>for (const song of songs)</c>, <c>for (const score of scores)</c>.
+      Each pass, the variable holds one song or one score, so the name should say that.
+    </p>
+  </section>
+
+  <section xml:id="sec-for-of-check">
+    <title>Check Your Understanding</title>
+
+    <exercise xml:id="mc-forof-value" label="mc-forof-value">
+      <statement>
+        <p>On the second pass of this loop, what is the value of <c>pet</c>?</p>
+        <program language="javascript">
+          <code>
+  let pets = ["dog", "cat", "fish"];
+
+  for (const pet of pets) {
+    console.log(pet);
+  }
+          </code>
+        </program>
+      </statement>
+      <choices>
+        <choice correct="yes">
+          <statement><p><c>"cat"</c></p></statement>
+          <feedback><p>Right. A <c>for...of</c> loop variable holds an element, and the second element is <c>"cat"</c>.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p><c>1</c></p></statement>
+          <feedback><p>No. A <c>for...of</c> loop variable holds an element, not an index.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p><c>"dog"</c></p></statement>
+          <feedback><p>No. That is the first pass.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p><c>["dog", "cat", "fish"]</c></p></statement>
+          <feedback><p>No. That is the whole array. The loop variable holds one element at a time.</p></feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="mc-forof-when" label="mc-forof-when">
+      <statement>
+        <p>You need to add 10 points to every score in an array. Which loop do you need?</p>
+      </statement>
+      <choices>
+        <choice correct="yes">
+          <statement><p>A counting <c>for</c> loop, so you can write <c>scores[i] = scores[i] + 10</c></p></statement>
+          <feedback><p>Right. Changing an element needs its index.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p>A <c>for...of</c> loop, so you can write <c>score = score + 10</c></p></statement>
+          <feedback><p>No. That changes the loop variable, but not the array.</p></feedback>
+        </choice>
+      </choices>
+    </exercise>
+  </section>
+</chapter>

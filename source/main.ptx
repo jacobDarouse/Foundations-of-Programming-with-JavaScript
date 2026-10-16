@@ -13,6 +13,12 @@
       <xi:include href="./unit00/ch-how-programs-work.ptx" />
     </part>
 
+    <part xml:id="unit-10">
+      <title>Loops</title>
+      <xi:include href="./unit10/ch-loops.ptx" />
+      <xi:include href="./unit10/ch-for-of.ptx" />
+    </part>
+
     <xi:include href="./backmatter.ptx" />
   </book>
 </pretext>

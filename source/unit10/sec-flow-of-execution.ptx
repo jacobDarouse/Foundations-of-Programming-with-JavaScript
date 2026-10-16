@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Adapted from FOPP "Flow of Execution of the for Loop". GNU FDL 1.3; see for-loops/ch-loops.ptx. -->
+<section xml:id="sec-flow-of-execution">
+  <title>Flow of Execution of the <c>for</c> Loop</title>
+  <introduction>
+
+    <p>
+      As a program runs, the computer always keeps track of which line it will run next.
+      We call this the <term>flow of execution</term>, or <term>control flow</term>.
+      You can think of it as the computer pointing its finger at one line at a time.
+    </p>
+
+    <p>
+      Until now, control flow has gone from top to bottom, one line at a time.
+      We call that <term>sequential</term> flow.
+      An <c>if</c> statement changed that a little: it can skip a code block.
+      A loop changes it even more: it can jump <em>back up</em> and run a code block again.
+    </p>
+
+    <p>
+      Here are the exact steps a <c>for</c> loop follows.
+    </p>
+
+    <ol>
+      <li><p>Run the <term>start</term>. (This happens once.)</p></li>
+      <li><p>Check the <term>condition</term>. If it is <c>false</c>, the loop is over: skip to the first line after the closing <c>}</c>.</p></li>
+      <li><p>Run the <term>body</term>.</p></li>
+      <li><p>Run the <term>update</term>.</p></li>
+      <li><p>Go back to step 2.</p></li>
+    </ol>
+
+    <p>
+      Notice that the condition is always checked <em>before</em> the body runs.
+      That means the very last thing a loop does is check the condition and find it <c>false</c>.
+      The condition that ends the loop is called the <term>terminating condition</term>.
+    </p>
+  </introduction>
+
+  <subsection xml:id="subsec-tracing">
+    <title>Tracing a Loop</title>
+
+    <p>
+      To <term>trace</term> a loop means to follow these steps by hand and write down what happens.
+      A table makes it easy.
+      Let's trace this loop:
+    </p>
+
+    <program language="javascript">
+      <code>
+for (let i = 0; i &lt; 3; i++) {
+  console.log(i);
+}
+console.log("done");
+      </code>
+    </program>
+
+    <table xml:id="table-trace-1">
+      <title>Tracing a loop that counts 0 to 2</title>
+      <tabular halign="left" top="major" bottom="minor">
+        <row header="yes" bottom="minor">
+          <cell>Step</cell>
+          <cell>Value of <c>i</c></cell>
+          <cell>Condition <c>i &lt; 3</c></cell>
+          <cell>What happens</cell>
+        </row>
+        <row><cell>start</cell><cell>0</cell><cell></cell><cell><c>i</c> is set to 0</cell></row>
+        <row><cell>check</cell><cell>0</cell><cell><c>true</c></cell><cell>prints 0, then <c>i++</c></cell></row>
+        <row><cell>check</cell><cell>1</cell><cell><c>true</c></cell><cell>prints 1, then <c>i++</c></cell></row>
+        <row><cell>check</cell><cell>2</cell><cell><c>true</c></cell><cell>prints 2, then <c>i++</c></cell></row>
+        <row><cell>check</cell><cell>3</cell><cell><c>false</c></cell><cell>loop is over, prints <c>"done"</c></cell></row>
+      </tabular>
+    </table>
+
+    <p>
+      The body ran 3 times. The values of <c>i</c> inside the body were 0, 1, and 2.
+      The variable <c>i</c> did reach 3, but only long enough to make the condition <c>false</c>.
+      The body never saw it.
+    </p>
+
+    <p>
+      Here is the same loop so you can run it and compare.
+      Change the <c>3</c> to another number and predict the output before you run it again.
+    </p>
+
+    <activity xml:id="try-flow-1">
+      <title>Trace It Yourself</title>
+      <program xml:id="ac-flow-1" interactive="activecode" language="javascript">
+      <code>
+for (let i = 0; i &lt; 3; i++) {
+  console.log(i);
+}
+console.log("done");
+      </code>
+    </program>
+    </activity>
+  </subsection>
+
+  <subsection xml:id="subsec-why-loops">
+    <title>Why the Loop Is Worth It</title>
+
+    <p>
+      When a loop is short, writing the lines out by hand might seem just as easy.
+      The difference shows up when you need to change something.
+      If the body needs a new line, you add it once and every pass gets it.
+      If the number of passes changes, you change one number.
+      Code that is written out by hand, line by line, is called <term>hard coded</term>,
+      and every change has to be made in every copy.
+    </p>
+  </subsection>
+
+  <subsection xml:id="sec-flow-of-execution-check">
+    <title>Check Your Understanding</title>
+
+    <exercise xml:id="mc-flow-order" label="mc-flow-order">
+      <statement>
+        <p>In what order does a <c>for</c> loop do its work after the start?</p>
+      </statement>
+      <choices>
+        <choice correct="yes">
+          <statement><p>condition, body, update, condition, body, update, ...</p></statement>
+          <feedback><p>Right. The condition always comes before the body.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p>body, condition, update, body, condition, update, ...</p></statement>
+          <feedback><p>No. In this order, the body would run once even if the condition were <c>false</c> from the beginning.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p>update, condition, body, update, condition, body, ...</p></statement>
+          <feedback><p>No. In this order, the loop variable would change before the first pass.</p></feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="mc-flow-count-1" label="mc-flow-count-1">
+      <statement>
+        <p>Which choice lists every value <c>i</c> has inside the loop body, in order?</p>
+        <program language="javascript">
+          <code>
+  for (let i = 0; i &lt; 4; i++) {
+    console.log(i);
+  }
+          </code>
+        </program>
+      </statement>
+      <choices>
+        <choice correct="yes">
+          <statement><p>0, 1, 2, 3</p></statement>
+          <feedback><p>Right. It starts at 0 and stops when <c>i &lt; 4</c> is <c>false</c>.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p>1, 2, 3, 4</p></statement>
+          <feedback><p>No. The start sets <c>i</c> to 0, so 0 is the first value.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p>0, 1, 2, 3, 4</p></statement>
+          <feedback><p>No. When <c>i</c> is 4, the condition is <c>false</c>, so the body does not run.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p>1, 2, 3</p></statement>
+          <feedback><p>No. The start sets <c>i</c> to 0, and the body runs with that value.</p></feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="mc-flow-never" label="mc-flow-never">
+      <statement>
+        <p>How many times will this loop's body run?</p>
+        <program language="javascript">
+          <code>
+  for (let i = 10; i &lt; 5; i++) {
+    console.log(i);
+  }
+          </code>
+        </program>
+      </statement>
+      <choices>
+        <choice correct="yes">
+          <statement><p>0 times</p></statement>
+          <feedback><p>Right. <c>10 &lt; 5</c> is <c>false</c> on the very first check, so the body never runs.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p>1 time</p></statement>
+          <feedback><p>No. The condition is checked before the body, not after.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p>5 times</p></statement>
+          <feedback><p>No. The loop does not run until the condition becomes <c>false</c>. It runs only while the condition is <c>true</c>.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p>It never stops</p></statement>
+          <feedback><p>No. A loop that never stops needs a condition that stays <c>true</c>.</p></feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="mc-flow-after" label="mc-flow-after">
+      <statement>
+        <p>What is the last thing this program prints?</p>
+        <program language="javascript">
+          <code>
+  for (let i = 0; i &lt; 3; i++) {
+    console.log("in the loop");
+  }
+  console.log("after the loop");
+          </code>
+        </program>
+      </statement>
+      <choices>
+        <choice correct="yes">
+          <statement><p><c>after the loop</c>, once</p></statement>
+          <feedback><p>Right. That line is after the closing <c>}</c>, so it runs once, after the loop is over.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p><c>after the loop</c>, three times</p></statement>
+          <feedback><p>No. Only code inside the curly braces repeats.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p><c>in the loop</c></p></statement>
+          <feedback><p>No. Control flow keeps going after the loop is over.</p></feedback>
+        </choice>
+      </choices>
+    </exercise>
+  </subsection>
+</section>

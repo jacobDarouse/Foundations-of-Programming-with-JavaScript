@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Adapted from FOPP Iteration "Glossary". GNU FDL 1.3; see ch-loops.ptx. -->
+<section xml:id="sec-loops-glossary">
+  <title>Glossary</title>
+
+  <dl>
+    <li>
+      <title>accumulator</title>
+      <p>A variable that builds up an answer over the passes of a loop, such as a running total.</p>
+    </li>
+    <li>
+      <title>accumulator pattern</title>
+      <p>Make a variable before the loop, update it on every pass, and use it after the loop.</p>
+    </li>
+    <li>
+      <title>condition (of a loop)</title>
+      <p>The middle part of a <c>for</c> loop header. It is checked before every pass. The body runs only while it is <c>true</c>.</p>
+    </li>
+    <li>
+      <title>control flow</title>
+      <p>The order in which a program runs its lines. Also called the flow of execution.</p>
+    </li>
+    <li>
+      <title>D.R.Y.</title>
+      <p><q>Don't Repeat Yourself.</q> If you write the same code over and over, put it in a loop or a function instead.</p>
+    </li>
+    <li>
+      <title>hard coded</title>
+      <p>Written out by hand with fixed values, instead of worked out by the program. Hard coded code has to be changed by hand whenever the values change.</p>
+    </li>
+    <li>
+      <title>index</title>
+      <p>The position of an element in an array or a character in a string. The first index is 0.</p>
+    </li>
+    <li>
+      <title>infinite loop</title>
+      <p>A loop whose condition never becomes <c>false</c>, so it never stops.</p>
+    </li>
+    <li>
+      <title>iteration</title>
+      <p>Repeating a block of code. One iteration is one pass through the loop body.</p>
+    </li>
+    <li>
+      <title>loop</title>
+      <p>A statement that repeats a block of code.</p>
+    </li>
+    <li>
+      <title>loop body</title>
+      <p>The code block inside a loop's curly braces. It is the code that repeats.</p>
+    </li>
+    <li>
+      <title>loop header</title>
+      <p>The first line of a loop. In a counting <c>for</c> loop, it holds the start, the condition, and the update.</p>
+    </li>
+    <li>
+      <title>loop variable</title>
+      <p>The variable that changes on each pass of a loop, such as <c>i</c>.</p>
+    </li>
+    <li>
+      <title>pass</title>
+      <p>One run through the loop body.</p>
+    </li>
+    <li>
+      <title>sequential flow</title>
+      <p>Running a program from top to bottom, one line at a time.</p>
+    </li>
+    <li>
+      <title>start (of a loop)</title>
+      <p>The first part of a <c>for</c> loop header. It makes the loop variable and runs once, before the first pass.</p>
+    </li>
+    <li>
+      <title>terminating condition</title>
+      <p>The check that ends a loop: the moment the condition is <c>false</c>.</p>
+    </li>
+    <li>
+      <title>trace</title>
+      <p>To follow a program by hand, step by step, writing down the value of each variable.</p>
+    </li>
+    <li>
+      <title>traverse</title>
+      <p>To visit every element of an array, or every character of a string, one at a time.</p>
+    </li>
+    <li>
+      <title>update (of a loop)</title>
+      <p>The last part of a <c>for</c> loop header. It runs after every pass and changes the loop variable.</p>
+    </li>
+  </dl>
+</section>

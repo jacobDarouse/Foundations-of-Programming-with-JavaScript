@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Adapted from FOPP "The Accumulator Pattern with Conditionals" and
+     "Accumulating the Max Value". GNU FDL 1.3; see for-loops/ch-loops.ptx. -->
+<section xml:id="sec-accumulator-conditionals">
+  <title>Loops with <c>if</c> Statements</title>
+  <introduction>
+
+    <p>
+      Any code can go in a loop body, including an <c>if</c> statement.
+      That lets the loop make a choice about each element:
+      do something with this one, skip that one.
+    </p>
+  </introduction>
+
+  <subsection xml:id="subsec-cond-count">
+    <title>Counting Only Some Elements</title>
+
+    <p>
+      This program counts how many scores are 70 or higher.
+      The accumulator only goes up when the condition is <c>true</c>.
+    </p>
+
+    <activity xml:id="try-cond-1">
+      <title>Counting Passing Scores</title>
+      <program xml:id="ac-cond-1" interactive="activecode" language="javascript">
+      <code>
+let scores = [88, 52, 70, 95, 64, 79];
+let passing = 0;
+
+for (let i = 0; i &lt; scores.length; i++) {
+  if (scores[i] &gt;= 70) {
+    passing = passing + 1;
+  }
+}
+
+console.log(passing + " students passed");
+      </code>
+    </program>
+    </activity>
+
+    <p>
+      Look at the curly braces.
+      The <c>if</c> statement's code block is inside the loop's code block.
+      Each pass of the loop runs the <c>if</c> check once, on one score.
+    </p>
+  </subsection>
+
+  <subsection xml:id="subsec-cond-filter">
+    <title>Keeping Only Some Elements</title>
+
+    <p>
+      Combine an <c>if</c> with an array accumulator, and you can make a new array
+      that holds only the elements you want.
+    </p>
+
+    <activity xml:id="try-cond-2">
+      <title>Keeping Long Words</title>
+      <program xml:id="ac-cond-2" interactive="activecode" language="javascript">
+      <code>
+let words = ["cat", "elephant", "dog", "giraffe", "ox"];
+let longWords = [];
+
+for (let i = 0; i &lt; words.length; i++) {
+  if (words[i].length &gt; 3) {
+    longWords.push(words[i]);
+  }
+}
+
+console.log(longWords);
+      </code>
+    </program>
+    </activity>
+  </subsection>
+
+  <subsection xml:id="subsec-cond-max">
+    <title>Finding the Biggest Value</title>
+
+    <p>
+      To find the biggest number in an array, keep track of the <q>biggest so far</q>.
+      Start it at the first element.
+      Then check every element: if it is bigger than the biggest so far, it becomes the new biggest so far.
+    </p>
+
+    <activity xml:id="try-cond-3">
+      <title>Finding the Tallest</title>
+      <program xml:id="ac-cond-3" interactive="activecode" language="javascript">
+      <code>
+let heights = [61, 74, 58, 80, 67];
+let tallest = heights[0];
+
+for (let i = 0; i &lt; heights.length; i++) {
+  if (heights[i] &gt; tallest) {
+    tallest = heights[i];
+  }
+}
+
+console.log(tallest);
+      </code>
+    </program>
+    </activity>
+
+    <p>
+      Why start at <c>heights[0]</c> and not at 0?
+      If every number in the array were negative, a start of 0 would be bigger than all of them,
+      and the program would wrongly say the biggest value is 0.
+      Starting at a real element of the array avoids that.
+    </p>
+  </subsection>
+
+  <subsection xml:id="sec-accumulator-conditionals-check">
+    <title>Check Your Understanding</title>
+
+    <exercise xml:id="mc-cond-count" label="mc-cond-count">
+      <statement>
+        <p>What does this program print?</p>
+        <program language="javascript">
+          <code>
+  let nums = [4, 9, 2, 7, 10, 3];
+  let count = 0;
+
+  for (let i = 0; i &lt; nums.length; i++) {
+    if (nums[i] % 2 === 0) {
+      count = count + 1;
+    }
+  }
+
+  console.log(count);
+          </code>
+        </program>
+      </statement>
+      <choices>
+        <choice correct="yes">
+          <statement><p><c>3</c></p></statement>
+          <feedback><p>Right. 4, 2, and 10 are even.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p><c>6</c></p></statement>
+          <feedback><p>No. <c>count</c> only goes up when the condition is <c>true</c>.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p><c>16</c></p></statement>
+          <feedback><p>No. The program adds 1, not the element.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p><c>2</c></p></statement>
+          <feedback><p>No. There are more even numbers in the array than that.</p></feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="mc-cond-smallest" label="mc-cond-smallest">
+      <statement>
+        <p>You want to change the <q>biggest value</q> program to find the <em>smallest</em> value instead. What else has to change, besides the variable name?</p>
+      </statement>
+      <choices>
+        <choice correct="yes">
+          <statement><p>The <c>&gt;</c> in the <c>if</c> condition becomes <c>&lt;</c></p></statement>
+          <feedback><p>Right. Now an element replaces the smallest so far when it is smaller.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p>The loop counts down instead of up</p></statement>
+          <feedback><p>No. The order you visit the elements in does not matter. You still visit them all.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p>The starting value becomes 0</p></statement>
+          <feedback><p>No. Starting at a real element still works, and 0 would be wrong for an array of positive numbers.</p></feedback>
+        </choice>
+      </choices>
+    </exercise>
+  </subsection>
+</section>

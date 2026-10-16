@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Adapted from FOPP "Lists and for loops", "Strings and for loops", and
+     "Traversal and the for Loop: By Index". GNU FDL 1.3; see for-loops/ch-loops.ptx. -->
+<section xml:id="sec-arrays-by-index">
+  <title>Looping Over an Array</title>
+  <introduction>
+
+    <p>
+      Here is where loops start to pay off.
+      Remember that every element in an array has an index, starting at 0.
+    </p>
+
+    <program language="javascript">
+      <code>
+  let friends = ["Joe", "Amy", "Brad", "Zuki"];
+  //   index:      0      1      2       3
+      </code>
+    </program>
+
+    <p>
+      The indexes of this array are 0, 1, 2, 3.
+      That is exactly the list of values <c>i</c> takes in <c>for (let i = 0; i &lt; 4; i++)</c>.
+      So if we use <c>i</c> inside the brackets, each pass of the loop gets the next element.
+    </p>
+
+    <activity xml:id="try-arr-1">
+      <title>Party Invitations</title>
+      <program xml:id="ac-arr-1" interactive="activecode" language="javascript">
+      <code>
+  let friends = ["Joe", "Amy", "Brad", "Zuki"];
+
+  for (let i = 0; i &lt; 4; i++) {
+    console.log("Hi " + friends[i] + ", please come to my party on Saturday!");
+  }
+      </code>
+    </program>
+    </activity>
+
+    <p>
+      On the first pass, <c>i</c> is 0, so <c>friends[i]</c> is <c>friends[0]</c>, which is <c>"Joe"</c>.
+      On the second pass, <c>i</c> is 1, so <c>friends[i]</c> is <c>"Amy"</c>.
+      And so on, until <c>i</c> is 4 and the loop stops.
+    </p>
+
+    <p>
+      Visiting every element of an array, one at a time, is called <term>traversing</term> the array,
+      or <term>iterating over</term> the array.
+    </p>
+
+    <note>
+      <title>The test's definition</title>
+      <p>
+        Operation Spark's test defines iteration as:
+        <q>Iteration is the process of accessing values in an Array using a loop.</q>
+        Learn those words for the test.
+        As this chapter shows, iteration really means repeating any code.
+        Going through an array is the most common reason to do it, but not the only one.
+      </p>
+    </note>
+  </introduction>
+
+  <subsection xml:id="subsec-use-length">
+    <title>Use <c>.length</c>, Not a Number</title>
+
+    <p>
+      The loop above has a problem. It only works if the array has exactly 4 elements.
+      Add a friend and they will not get invited.
+      Instead of writing the number, use the array's <c>.length</c>:
+    </p>
+
+    <activity xml:id="try-arr-2">
+      <title>Invitations with <c>.length</c></title>
+      <program xml:id="ac-arr-2" interactive="activecode" language="javascript">
+      <code>
+let friends = ["Joe", "Amy", "Brad", "Zuki", "Thandi", "Paris"];
+
+for (let i = 0; i &lt; friends.length; i++) {
+  console.log("Hi " + friends[i] + ", please come to my party on Saturday!");
+}
+      </code>
+    </program>
+    </activity>
+
+    <p>
+      This is the most common loop in JavaScript.
+      Learn it until you can write it without thinking:
+    </p>
+
+    <program language="javascript">
+      <code>
+for (let i = 0; i &lt; array.length; i++) {
+  // array[i] is the current element
+}
+      </code>
+    </program>
+
+    <p>
+      Notice the condition is <c>&lt;</c>, not <c>&lt;=</c>.
+      An array with 6 elements has indexes 0 through 5. There is no index 6.
+      If you use <c>&lt;=</c>, the last pass asks for <c>friends[6]</c>, which does not exist,
+      and you get <c>undefined</c>. Try it: change <c>&lt;</c> to <c>&lt;=</c> above and run it.
+    </p>
+  </subsection>
+
+  <subsection xml:id="subsec-index-mistake">
+    <title>Use <c>i</c> Inside the Brackets</title>
+
+    <p>
+      A common mistake is to write a number inside the brackets instead of the loop variable.
+    </p>
+
+    <activity xml:id="try-arr-3">
+      <title>The Same Name Every Time</title>
+      <program xml:id="ac-arr-3" interactive="activecode" language="javascript">
+      <code>
+let friends = ["Joe", "Amy", "Brad", "Zuki"];
+
+for (let i = 0; i &lt; friends.length; i++) {
+  console.log(friends[0]);
+}
+      </code>
+    </program>
+    </activity>
+
+    <p>
+      This loop runs 4 times, but it prints <c>Joe</c> every time,
+      because <c>friends[0]</c> always means the first element.
+      The loop variable is the only thing that changes from pass to pass,
+      so the loop variable is what has to go in the brackets.
+    </p>
+  </subsection>
+
+  <subsection xml:id="subsec-strings-by-index">
+    <title>Strings Work the Same Way</title>
+
+    <p>
+      A string also has a <c>.length</c>, and you can get one character with bracket notation.
+      So the same loop works on a string, one character at a time.
+    </p>
+
+    <activity xml:id="try-arr-4">
+      <title>Letters of a Word</title>
+      <program xml:id="ac-arr-4" interactive="activecode" language="javascript">
+      <code>
+let word = "banana";
+
+for (let i = 0; i &lt; word.length; i++) {
+  console.log(i + ": " + word[i]);
+}
+      </code>
+    </program>
+    </activity>
+  </subsection>
+
+  <subsection xml:id="sec-arrays-by-index-check">
+    <title>Check Your Understanding</title>
+
+    <exercise xml:id="mc-arr-every-index" label="mc-arr-every-index">
+      <statement>
+        <p>A loop starts with <c>let i = 0</c> and needs to visit every index of an array named <c>scores</c>, no matter how many elements it has. Which condition should it use?</p>
+      </statement>
+      <choices>
+        <choice correct="yes">
+          <statement><p><c>i &lt; scores.length</c></p></statement>
+          <feedback><p>Right. It starts at the first index, 0, and stops after the last index, <c>scores.length - 1</c>.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p><c>i &lt;= scores.length</c></p></statement>
+          <feedback><p>No. On the last pass, <c>i</c> equals <c>scores.length</c>, which is one past the last index.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p><c>i &lt; scores.length - 1</c></p></statement>
+          <feedback><p>No. This stops one index early and skips the last element.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p><c>i &lt; 10</c></p></statement>
+          <feedback><p>No. This only works if <c>scores</c> has exactly 10 elements.</p></feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="mc-arr-print-each" label="mc-arr-print-each">
+      <statement>
+        <p>What does this program print?</p>
+        <program language="javascript">
+          <code>
+let clubs = ["Robotics", "Chess", "Drama", "Art"];
+
+for (let i = 0; i &lt; clubs.length; i++) {
+  console.log(clubs[0]);
+}
+          </code>
+        </program>
+      </statement>
+      <choices>
+        <choice correct="yes">
+          <statement><p><c>Robotics</c>, four times</p></statement>
+          <feedback><p>Right. <c>clubs[0]</c> is always the first element. The loop variable is not in the brackets, so nothing changes from pass to pass.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p>Each club once: <c>Robotics</c>, <c>Chess</c>, <c>Drama</c>, <c>Art</c></p></statement>
+          <feedback><p>No. That would need <c>clubs[i]</c>.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p><c>0</c>, <c>1</c>, <c>2</c>, <c>3</c></p></statement>
+          <feedback><p>No. The program prints an element of the array, not the index.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p><c>Robotics</c>, once</p></statement>
+          <feedback><p>No. The loop runs once per element, and the <c>console.log</c> is inside it.</p></feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="mc-arr-undefined" label="mc-arr-undefined">
+      <statement>
+        <p>What does the last pass of this loop print?</p>
+        <program language="javascript">
+          <code>
+  let colors = ["red", "green", "blue"];
+
+  for (let i = 0; i &lt;= colors.length; i++) {
+    console.log(colors[i]);
+  }
+          </code>
+        </program>
+      </statement>
+      <choices>
+        <choice correct="yes">
+          <statement><p><c>undefined</c></p></statement>
+          <feedback><p>Right. The last pass has <c>i</c> equal to 3, and there is no <c>colors[3]</c>.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p><c>blue</c></p></statement>
+          <feedback><p>No. <c>blue</c> is printed, but it is not the last thing printed.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p><c>red</c></p></statement>
+          <feedback><p>No. The loop does not go back to the start of the array.</p></feedback>
+        </choice>
+      </choices>
+    </exercise>
+  </subsection>
+</section>

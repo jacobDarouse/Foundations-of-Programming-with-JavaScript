@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- New exercises, written in the course's task style. GNU FDL 1.3; see ch-loops.ptx. -->
+<exercises xml:id="sec-loops-exercises">
+  <title>Exercises</title>
+
+  <introduction>
+    <p>
+      Each exercise asks you to do a job, the way someone might ask you in real life.
+      You decide what to name your variables and what values to test with.
+      Run your code with more than one test value to make sure it works for any value, not just one.
+    </p>
+  </introduction>
+
+  <subexercises xml:id="subex-loops-counting">
+    <title>Counting</title>
+
+    <exercise xml:id="ex-loops-1" label="ex-loops-1">
+      <statement><p>Print every number from 1 to 50.</p></statement>
+      <program language="javascript" interactive="activecode" xml:id="ac-ex-loops-1"><code></code></program>
+    </exercise>
+
+    <exercise xml:id="ex-loops-2" label="ex-loops-2">
+      <statement><p>Print every even number from 0 to 100.</p></statement>
+      <program language="javascript" interactive="activecode" xml:id="ac-ex-loops-2"><code></code></program>
+    </exercise>
+
+    <exercise xml:id="ex-loops-3" label="ex-loops-3">
+      <statement><p>It is New Year's Eve. Count down from 10 to 1, then print <c>"Happy New Year!"</c> once.</p></statement>
+      <program language="javascript" interactive="activecode" xml:id="ac-ex-loops-3"><code></code></program>
+    </exercise>
+
+    <exercise xml:id="ex-loops-4" label="ex-loops-4">
+      <statement><p>Print every multiple of 7 that is less than 100.</p></statement>
+      <program language="javascript" interactive="activecode" xml:id="ac-ex-loops-4"><code></code></program>
+    </exercise>
+
+    <exercise xml:id="ex-loops-5" label="ex-loops-5">
+      <statement><p>Write a function that prints <c>"Hip hip hooray!"</c> as many times as it is told.</p></statement>
+      <program language="javascript" interactive="activecode" xml:id="ac-ex-loops-5"><code></code></program>
+    </exercise>
+
+    <exercise xml:id="ex-loops-6" label="ex-loops-6">
+      <statement><p>Write a function that is given a starting number and counts down from it to 0.</p></statement>
+      <program language="javascript" interactive="activecode" xml:id="ac-ex-loops-6"><code></code></program>
+    </exercise>
+
+    <exercise xml:id="ex-loops-7" label="ex-loops-7">
+      <statement><p>Write a function that is given a number and prints its times table, from that number times 1 up to that number times 12.</p></statement>
+      <program language="javascript" interactive="activecode" xml:id="ac-ex-loops-7"><code></code></program>
+    </exercise>
+  </subexercises>
+
+  <subexercises xml:id="subex-loops-arrays">
+    <title>Arrays</title>
+
+    <exercise xml:id="ex-loops-8" label="ex-loops-8">
+      <statement><p>Make an array of your five favorite foods. Print each one.</p></statement>
+      <program language="javascript" interactive="activecode" xml:id="ac-ex-loops-8"><code></code></program>
+    </exercise>
+
+    <exercise xml:id="ex-loops-9" label="ex-loops-9">
+      <statement><p>Make an array of the names of some of your friends. Print a message to each one asking them to sit with you at lunch.</p></statement>
+      <program language="javascript" interactive="activecode" xml:id="ac-ex-loops-9"><code></code></program>
+    </exercise>
+
+    <exercise xml:id="ex-loops-10" label="ex-loops-10">
+      <statement><p>Write a function that is given an array and prints each element along with its index.</p></statement>
+      <program language="javascript" interactive="activecode" xml:id="ac-ex-loops-10"><code></code></program>
+    </exercise>
+
+    <exercise xml:id="ex-loops-11" label="ex-loops-11">
+      <statement><p>Write a function that is given an array and prints its elements from last to first.</p></statement>
+      <program language="javascript" interactive="activecode" xml:id="ac-ex-loops-11"><code></code></program>
+    </exercise>
+
+    <exercise xml:id="ex-loops-12" label="ex-loops-12">
+      <statement><p>Write a function that is given a word and prints each letter of the word on its own line.</p></statement>
+      <program language="javascript" interactive="activecode" xml:id="ac-ex-loops-12"><code></code></program>
+    </exercise>
+
+    <exercise xml:id="ex-loops-13" label="ex-loops-13">
+      <statement><p>A video game gives every player double points during a bonus round. Write a function that is given an array of the players' points and doubles every one.</p></statement>
+      <program language="javascript" interactive="activecode" xml:id="ac-ex-loops-13"><code></code></program>
+    </exercise>
+
+    <exercise xml:id="ex-loops-14" label="ex-loops-14">
+      <statement><p>A store is having a sale. Write a function that is given an array of prices and a discount amount, and takes the discount off every price.</p></statement>
+      <program language="javascript" interactive="activecode" xml:id="ac-ex-loops-14"><code></code></program>
+    </exercise>
+  </subexercises>
+
+  <subexercises xml:id="subex-loops-accumulator">
+    <title>Building Up an Answer</title>
+
+    <exercise xml:id="ex-loops-15" label="ex-loops-15">
+      <statement><p>Add up every number from 1 to 1000 and print the total.</p></statement>
+      <program language="javascript" interactive="activecode" xml:id="ac-ex-loops-15"><code></code></program>
+    </exercise>
+
+    <exercise xml:id="ex-loops-16" label="ex-loops-16">
+      <statement><p>Write a function that is given an array of numbers and returns their total.</p></statement>
+      <program language="javascript" interactive="activecode" xml:id="ac-ex-loops-16"><code></code></program>
+    </exercise>
+
+    <exercise xml:id="ex-loops-17" label="ex-loops-17">
+      <statement><p>A teacher needs the class average on a test. Write a function that is given an array of test scores and returns the average.</p></statement>
+      <program language="javascript" interactive="activecode" xml:id="ac-ex-loops-17"><code></code></program>
+    </exercise>
+
+    <exercise xml:id="ex-loops-18" label="ex-loops-18">
+      <statement><p>Write a function that is given a word and returns the word spelled backwards.</p></statement>
+      <program language="javascript" interactive="activecode" xml:id="ac-ex-loops-18"><code></code></program>
+    </exercise>
+
+    <exercise xml:id="ex-loops-19" label="ex-loops-19">
+      <statement><p>Write a function that is given a number and returns an array of every number from 1 up to that number.</p></statement>
+      <program language="javascript" interactive="activecode" xml:id="ac-ex-loops-19"><code></code></program>
+    </exercise>
+  </subexercises>
+
+  <subexercises xml:id="subex-loops-conditionals">
+    <title>Loops with <c>if</c> Statements</title>
+
+    <exercise xml:id="ex-loops-20" label="ex-loops-20">
+      <statement><p>Write a function that is given an array of numbers and returns how many of them are negative.</p></statement>
+      <program language="javascript" interactive="activecode" xml:id="ac-ex-loops-20"><code></code></program>
+    </exercise>
+
+    <exercise xml:id="ex-loops-21" label="ex-loops-21">
+      <statement><p>A teacher wants to know how many students are failing. Write a function that is given an array of grades and returns how many are below 60.</p></statement>
+      <program language="javascript" interactive="activecode" xml:id="ac-ex-loops-21"><code></code></program>
+    </exercise>
+
+    <exercise xml:id="ex-loops-22" label="ex-loops-22">
+      <statement><p>Write a function that is given an array of numbers and returns the largest one.</p></statement>
+      <program language="javascript" interactive="activecode" xml:id="ac-ex-loops-22"><code></code></program>
+    </exercise>
+
+    <exercise xml:id="ex-loops-23" label="ex-loops-23">
+      <statement><p>Write a function that is given an array of words and returns a new array with only the words that are longer than five letters.</p></statement>
+      <program language="javascript" interactive="activecode" xml:id="ac-ex-loops-23"><code></code></program>
+    </exercise>
+
+    <exercise xml:id="ex-loops-24" label="ex-loops-24">
+      <statement><p>Write a function that is given a sentence and returns how many times the letter <c>"e"</c> shows up in it.</p></statement>
+      <program language="javascript" interactive="activecode" xml:id="ac-ex-loops-24"><code></code></program>
+    </exercise>
+
+    <exercise xml:id="ex-loops-25" label="ex-loops-25">
+      <statement><p>Write a function that is given an array of names and a name to look for. Return <c>true</c> if the name is in the array and <c>false</c> if it is not.</p></statement>
+      <program language="javascript" interactive="activecode" xml:id="ac-ex-loops-25"><code></code></program>
+    </exercise>
+  </subexercises>
+</exercises>

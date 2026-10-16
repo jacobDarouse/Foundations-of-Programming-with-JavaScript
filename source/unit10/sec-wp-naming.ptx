@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Adapted from FOPP "Naming Variables in For Loops" and "Keeping Track of
+     Your Iterator Variable and Your Iterable". GNU FDL 1.3; see for-loops/ch-loops.ptx. -->
+<section xml:id="sec-wp-naming">
+  <title>&#x1F469;&#x200D;&#x1F4BB; Naming Loop Variables</title>
+  <introduction>
+
+    <p>
+      The names you choose do not matter to the computer, but they matter a lot to you
+      and to anyone who reads your code.
+      Loops have a few naming habits that make them much easier to read.
+    </p>
+
+    <ol>
+      <li>
+        <p>
+          <term>Use a plural noun for an array</term>:
+          <c>songs</c>, <c>scores</c>, <c>players</c>, <c>words</c>.
+          The name tells you it holds many things.
+        </p>
+      </li>
+      <li>
+        <p>
+          <term>In a counting <c>for</c> loop, use <c>i</c></term> for the loop variable.
+          Every programmer reads <c>i</c> as <q>the index.</q>
+        </p>
+      </li>
+      <li>
+        <p>
+          <term>When you save the current element in a variable, use the singular of the array name</term>:
+          <c>let song = songs[i];</c>, <c>let score = scores[i];</c>.
+        </p>
+      </li>
+    </ol>
+
+    <p>
+      Compare these two loops. They do the same thing.
+    </p>
+
+    <program language="javascript">
+      <code>
+  for (let i = 0; i &lt; x.length; i++) {
+    let y = x[i];
+    console.log(y);
+  }
+
+  for (let i = 0; i &lt; genres.length; i++) {
+    let genre = genres[i];
+    console.log(genre);
+  }
+      </code>
+    </program>
+
+    <p>
+      Without seeing how <c>x</c> was made, you have no idea what the first loop prints.
+      The second loop tells you right away.
+    </p>
+  </introduction>
+
+  <subsection xml:id="subsec-keep-straight">
+    <title>Keep the Array and the Loop Variable Straight</title>
+
+    <p>
+      A loop always has two different things in it, and mixing them up is a common mistake:
+    </p>
+
+    <ul>
+      <li><p>The <term>array</term> is the whole collection. It does not change while the loop runs.</p></li>
+      <li><p>The <term>loop variable</term> changes on every pass. In a counting loop, it is a number: the index.</p></li>
+    </ul>
+
+    <p>
+      In a counting loop, the current element is <c>songs[i]</c>: the array name, then the loop variable in brackets.
+      Writing <c>songs</c> alone means the whole array. Writing <c>i</c> alone means the index, not the song.
+    </p>
+  </subsection>
+
+  <subsection xml:id="sec-wp-naming-check">
+    <title>Check Your Understanding</title>
+
+    <exercise xml:id="mc-naming-type" label="mc-naming-type">
+      <statement>
+        <p>In this loop, what data type is <c>i</c>?</p>
+        <program language="javascript">
+          <code>
+  let songs = ["Hey Jude", "Imagine", "Respect"];
+
+  for (let i = 0; i &lt; songs.length; i++) {
+    console.log(songs[i]);
+  }
+          </code>
+        </program>
+      </statement>
+      <choices>
+        <choice correct="yes">
+          <statement><p>Number</p></statement>
+          <feedback><p>Right. <c>i</c> is an index: 0, then 1, then 2.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p>String</p></statement>
+          <feedback><p>No. <c>songs[i]</c> is a string, but <c>i</c> is the index.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p>Array</p></statement>
+          <feedback><p>No. <c>songs</c> is the array. <c>i</c> is something else.</p></feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="mc-naming-best" label="mc-naming-best">
+      <statement>
+        <p>An array holds the names of every city a band will visit on tour. Inside a loop over that array, which line is the best way to save the current element?</p>
+      </statement>
+      <choices>
+        <choice correct="yes">
+          <statement><p><c>let city = cities[i];</c></p></statement>
+          <feedback><p>Right. Plural for the array, singular for one element.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p><c>let cities = city[i];</c></p></statement>
+          <feedback><p>No. This works, but the names are backwards: the array holds many cities.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p><c>let x = list[i];</c></p></statement>
+          <feedback><p>No. This works, but the names do not say what the array holds.</p></feedback>
+        </choice>
+      </choices>
+    </exercise>
+  </subsection>
+</section>

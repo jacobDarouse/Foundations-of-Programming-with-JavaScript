@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- New section, written in the style of FOPP. GNU FDL 1.3; see for-loops/ch-loops.ptx. -->
+<section xml:id="sec-start-stop-step">
+  <title>Changing the Start, Stop, and Step</title>
+  <introduction>
+
+    <p>
+      Each part of the header can change.
+      By changing them, you can make a loop count any way you need.
+      It helps to think of the three parts as three questions:
+    </p>
+
+    <ul>
+      <li><p><term>Start</term>: Where does the count begin?</p></li>
+      <li><p><term>Condition</term>: When does the count stop?</p></li>
+      <li><p><term>Update</term>: How big is each step, and which way does it go?</p></li>
+    </ul>
+  </introduction>
+
+  <subsection xml:id="subsec-including-end">
+    <title>Counting Up to and Including a Number</title>
+
+    <p>
+      People count from 1, not 0.
+      To count from 1 up to and <em>including</em> 10, start at 1 and use <c>&lt;=</c>
+      (less than or equal to) in the condition.
+    </p>
+
+    <activity xml:id="try-sss-1">
+      <title>Counting 1 to 10</title>
+      <program xml:id="ac-sss-1" interactive="activecode" language="javascript">
+      <code>
+for (let i = 1; i &lt;= 10; i++) {
+  console.log(i);
+}
+      </code>
+    </program>
+    </activity>
+
+    <p>
+      Compare the two conditions:
+    </p>
+    <ul>
+      <li><p><c>i &lt; 10</c> stops <em>before</em> 10. The last value is 9.</p></li>
+      <li><p><c>i &lt;= 10</c> stops <em>after</em> 10. The last value is 10.</p></li>
+    </ul>
+
+    <p>
+      Very often the stop number is not written in the code.
+      It comes from a variable or a parameter.
+      This function prints a count from 1 up to whatever number it is given.
+    </p>
+
+    <activity xml:id="try-sss-2">
+      <title>Counting to Any Number</title>
+      <program xml:id="ac-sss-2" interactive="activecode" language="javascript">
+      <code>
+function countTo(max) {
+  for (let i = 1; i &lt;= max; i++) {
+    console.log(i);
+  }
+}
+
+countTo(3);
+countTo(7);
+      </code>
+    </program>
+    </activity>
+
+    <p>
+      The loop does not know or care what number is in <c>max</c>.
+      It just keeps going while <c>i &lt;= max</c> is <c>true</c>.
+      That is why the same function works for 3, for 7, or for a million.
+    </p>
+  </subsection>
+
+  <subsection xml:id="subsec-counting-down">
+    <title>Counting Down</title>
+
+    <p>
+      To count down, three things change:
+      start at the high number, keep going while <c>i</c> is <em>greater</em> than (or equal to) the low number,
+      and use <c>i--</c>, which takes 1 away from <c>i</c>.
+    </p>
+
+    <activity xml:id="try-sss-3">
+      <title>Countdown</title>
+      <program xml:id="ac-sss-3" interactive="activecode" language="javascript">
+      <code>
+for (let i = 5; i &gt;= 1; i--) {
+  console.log(i);
+}
+console.log("Liftoff!");
+      </code>
+    </program>
+    </activity>
+
+    <p>
+      Watch the direction of the comparison.
+      When counting up, the condition uses <c>&lt;</c> or <c>&lt;=</c>.
+      When counting down, it uses <c>&gt;</c> or <c>&gt;=</c>.
+      If you mix them up, the loop will either never run or never stop.
+      You will see the second case in the next section.
+    </p>
+  </subsection>
+
+  <subsection xml:id="subsec-step-size">
+    <title>Taking Bigger Steps</title>
+
+    <p>
+      The update does not have to be <c>i++</c>.
+      To count by 2, use <c>i += 2</c>, which means <c>i = i + 2</c>.
+    </p>
+
+    <activity xml:id="try-sss-4">
+      <title>Counting by Twos</title>
+      <program xml:id="ac-sss-4" interactive="activecode" language="javascript">
+      <code>
+for (let i = 0; i &lt;= 10; i += 2) {
+  console.log(i);
+}
+      </code>
+    </program>
+    </activity>
+
+    <p>
+      This prints 0, 2, 4, 6, 8, 10. The body ran 6 times.
+      You can use any step: <c>i += 5</c>, <c>i += 10</c>, <c>i -= 3</c>.
+    </p>
+  </subsection>
+
+  <subsection xml:id="subsec-counting-passes">
+    <title>How to Count the Passes</title>
+
+    <p>
+      Tests often ask two things about a loop: how many times does it run, and what are the values of <c>i</c>?
+      The safe way to answer is to <em>list the values</em>, then count the list.
+    </p>
+
+    <ol>
+      <li><p>Write down the start value.</p></li>
+      <li><p>Check it against the condition. If <c>true</c>, keep it on the list.</p></li>
+      <li><p>Apply the update to get the next value, and check that one.</p></li>
+      <li><p>Stop at the first value that makes the condition <c>false</c>. Do <em>not</em> put that value on the list.</p></li>
+      <li><p>Count the values on your list. That is the number of passes.</p></li>
+    </ol>
+
+    <p>
+      For <c>for (let i = 10; i &gt;= 0; i--)</c>, the list is 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0.
+      The next value, -1, makes <c>i &gt;= 0</c> <c>false</c>, so it is not on the list.
+      That is 11 values, so the loop runs 11 times.
+    </p>
+
+    <p>
+      Do not try to subtract the start from the stop to get the answer.
+      That shortcut is often off by one, and it breaks when the step is not 1.
+      Listing the values always works.
+    </p>
+  </subsection>
+
+  <subsection xml:id="sec-start-stop-step-check">
+    <title>Check Your Understanding</title>
+
+    <exercise xml:id="mc-sss-down" label="mc-sss-down">
+      <statement>
+        <p>Which choice lists every value <c>i</c> has inside the loop body, in order?</p>
+        <program language="javascript">
+          <code>
+  for (let i = 6; i &gt;= 0; i--) {
+    console.log(i);
+  }
+          </code>
+        </program>
+      </statement>
+      <choices>
+        <choice correct="yes">
+          <statement><p>6, 5, 4, 3, 2, 1, 0</p></statement>
+          <feedback><p>Right. <c>&gt;=</c> lets 0 on the list, so there are 7 values.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p>6, 5, 4, 3, 2, 1</p></statement>
+          <feedback><p>No. When <c>i</c> is 0, <c>0 &gt;= 0</c> is <c>true</c>.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p>5, 4, 3, 2, 1, 0</p></statement>
+          <feedback><p>No. The start sets <c>i</c> to 6, and the body runs with that value first.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p>It never stops</p></statement>
+          <feedback><p>No. <c>i</c> goes down by 1 each pass, so it will reach -1 and the condition will be <c>false</c>.</p></feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="mc-sss-step" label="mc-sss-step">
+      <statement>
+        <p>Which choice lists every value <c>i</c> has inside the loop body, in order?</p>
+        <program language="javascript">
+          <code>
+  for (let i = 3; i &lt;= 15; i += 3) {
+    console.log(i);
+  }
+          </code>
+        </program>
+      </statement>
+      <choices>
+        <choice correct="yes">
+          <statement><p>3, 6, 9, 12, 15</p></statement>
+          <feedback><p>Right. The next value, 18, makes the condition <c>false</c>.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p>3, 6, 9, 12</p></statement>
+          <feedback><p>No. The condition uses <c>&lt;=</c>, so 15 is on the list.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p>3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15</p></statement>
+          <feedback><p>No. The update is <c>i += 3</c>, not <c>i++</c>.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p>0, 3, 6, 9, 12</p></statement>
+          <feedback><p>No. The start sets <c>i</c> to 3, not 0.</p></feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="mc-sss-which-loop" label="mc-sss-which-loop">
+      <statement>
+        <p>Which loop prints the numbers 1 through 20, including 20?</p>
+      </statement>
+      <choices>
+        <choice correct="yes">
+          <statement><p><c>for (let i = 1; i &lt;= 20; i++) { console.log(i); }</c></p></statement>
+          <feedback><p>Right. It starts at 1 and <c>&lt;=</c> keeps 20 on the list.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p><c>for (let i = 1; i &lt; 20; i++) { console.log(i); }</c></p></statement>
+          <feedback><p>No. This stops at 19.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p><c>for (let i = 0; i &lt;= 20; i++) { console.log(i); }</c></p></statement>
+          <feedback><p>No. This prints 0 first.</p></feedback>
+        </choice>
+        <choice>
+          <statement><p><c>for (let i = 0; i &lt; 20; i++) { console.log(i); }</c></p></statement>
+          <feedback><p>No. This prints 0 through 19.</p></feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="parsons-sss-countdown" label="parsons-sss-countdown">
+      <statement>
+        <p>Put the blocks in order to make a function that counts down from the number it is given to 1, then prints <c>"Go!"</c> once at the end.</p>
+      </statement>
+      <blocks>
+        <block><cline>function countdown(start) {</cline></block>
+        <block><cline>  for (let i = start; i &gt;= 1; i--) {</cline></block>
+        <block><cline>    console.log(i);</cline></block>
+        <block><cline>  }</cline></block>
+        <block><cline>  console.log("Go!");</cline></block>
+        <block><cline>}</cline></block>
+        <block correct="no"><cline>  for (let i = start; i &lt;= 1; i--) {</cline></block>
+        <block correct="no"><cline>  for (let i = start; i &gt;= 1; i++) {</cline></block>
+      </blocks>
+    </exercise>
+  </subsection>
+</section>

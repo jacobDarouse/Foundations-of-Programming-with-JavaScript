@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Adapted from FOPP "Printing Intermediate Results". GNU FDL 1.3; see ch-loops.ptx. -->
+<section xml:id="sec-wp-printing">
+  <title>&#x1F469;&#x200D;&#x1F4BB; Printing Intermediate Results</title>
+
+  <p>
+    A loop does a lot of work where you cannot see it.
+    When the answer at the end is wrong, you need a way to look inside.
+    The simplest way is to add <c>console.log</c> lines in the loop body,
+    so the loop tells you what it is doing on every pass.
+  </p>
+
+  <p>
+    This program is supposed to add up the numbers in the array, but the answer is wrong.
+  </p>
+
+  <activity xml:id="try-wpprint-1">
+    <title>A Buggy Total</title>
+    <program xml:id="ac-wpprint-1" interactive="activecode" language="javascript">
+    <code>
+let nums = [5, 10, 15, 20];
+let total = 0;
+
+for (let i = 1; i &lt; nums.length; i++) {
+  total = total + nums[i];
+}
+
+console.log(total);
+    </code>
+  </program>
+  </activity>
+
+  <p>
+    Add a line to show <c>i</c> and the element on each pass:
+  </p>
+
+  <activity xml:id="try-wpprint-2">
+    <title>Printing Inside the Loop</title>
+    <program xml:id="ac-wpprint-2" interactive="activecode" language="javascript">
+    <code>
+let nums = [5, 10, 15, 20];
+let total = 0;
+
+for (let i = 1; i &lt; nums.length; i++) {
+  console.log("i is " + i + ", nums[i] is " + nums[i]);
+  total = total + nums[i];
+}
+
+console.log(total);
+    </code>
+  </program>
+  </activity>
+
+  <p>
+    Now the bug is easy to see: the first line printed says <c>i is 1</c>.
+    The loop never visited index 0, so the 5 was never added.
+    Change the start to <c>let i = 0</c> and run it again.
+  </p>
+
+  <p>
+    You can print as much as you need, and add labels so you can tell the lines apart:
+  </p>
+
+  <activity xml:id="try-wpprint-3">
+    <title>Labeled Output</title>
+    <program xml:id="ac-wpprint-3" interactive="activecode" language="javascript">
+    <code>
+let nums = [5, 10, 15, 20];
+let total = 0;
+
+console.log("***** before the loop *****");
+for (let i = 0; i &lt; nums.length; i++) {
+  console.log("--- pass with i = " + i + " ---");
+  console.log("adding " + nums[i]);
+  total = total + nums[i];
+  console.log("total is now " + total);
+}
+console.log("***** after the loop *****");
+console.log("final total: " + total);
+    </code>
+  </program>
+  </activity>
+
+  <p>
+    Once the program works, take the extra <c>console.log</c> lines back out.
+    They were there to help you, not to be part of the answer.
+  </p>
+</section>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Adapted from FOPP "The for Loop". GNU FDL 1.3; see ch-loops.ptx. -->
+<section xml:id="sec-for-loop">
+  <title>The <c>for</c> Loop</title>
+
+  <p>
+    The most common loop in JavaScript is the <c>for</c> loop.
+    Here it is again:
+  </p>
+
+  <activity xml:id="try-for-loop-1">
+    <title>Your First for Loop</title>
+    <program xml:id="ac-for-loop-1" interactive="activecode" language="javascript">
+    <code>
+for (let i = 0; i &lt; 5; i++) {
+  console.log("Practice makes perfect");
+}
+    </code>
+  </program>
+  </activity>
+
+  <p>
+    A <c>for</c> loop has two main parts: a <term>header</term> and a <term>body</term>.
+  </p>
+
+  <p>
+    The <term>loop body</term> is the code block between the curly braces <c>{ }</c>.
+    It is the code that gets repeated.
+    In this loop, the body is one line: <c>console.log("Practice makes perfect");</c>.
+    A body can have as many lines as you need.
+  </p>
+
+  <p>
+    The <term>loop header</term> is the first line, inside the parentheses.
+    It controls how many times the body runs.
+    It has three parts, split up by semicolons:
+  </p>
+
+  <program language="javascript">
+    <code>
+for (start; condition; update) {
+  // body
+}
+    </code>
+  </program>
+
+  <ol>
+    <li>
+      <p>
+        <term>Start</term>: <c>let i = 0</c>.
+        This makes a new variable named <c>i</c> and sets it to <c>0</c>.
+        This variable is called the <term>loop variable</term>.
+        The start runs only once, before anything else.
+      </p>
+    </li>
+    <li>
+      <p>
+        <term>Condition</term>: <c>i &lt; 5</c>.
+        This is checked before every pass.
+        If it is <c>true</c>, the body runs.
+        If it is <c>false</c>, the loop stops.
+        It works just like the condition in an <c>if</c> statement:
+        it is a comparison that comes out <c>true</c> or <c>false</c>.
+      </p>
+    </li>
+    <li>
+      <p>
+        <term>Update</term>: <c>i++</c>.
+        This runs after every pass through the body.
+        <c>i++</c> means <q>add 1 to <c>i</c></q>.
+        It is a short way to write <c>i = i + 1</c>.
+      </p>
+    </li>
+  </ol>
+
+  <p>
+    So you can read the loop above out loud like this:
+    <q>Start <c>i</c> at 0. As long as <c>i</c> is less than 5, print the message, then add 1 to <c>i</c>.</q>
+  </p>
+
+  <p>
+    The loop variable is a real variable, so you can use it in the body.
+    Run this program and look at the output.
+  </p>
+
+  <activity xml:id="try-for-loop-2">
+    <title>Watching the Loop Variable</title>
+    <program xml:id="ac-for-loop-2" interactive="activecode" language="javascript">
+    <code>
+for (let i = 0; i &lt; 5; i++) {
+  console.log("i is now " + i);
+}
+    </code>
+  </program>
+  </activity>
+
+  <p>
+    The body ran five times, and each time <c>i</c> held a new number: 0, 1, 2, 3, 4.
+    It never printed 5. When <c>i</c> became 5, the condition <c>5 &lt; 5</c> was <c>false</c>, so the loop stopped before the body could run.
+  </p>
+
+  <p>
+    The name <c>i</c> is a habit programmers have used for a very long time.
+    It is short for <q>index</q>.
+    You can name the loop variable anything you like, but <c>i</c> is what you will see in most code, and on most tests.
+  </p>
+
+  <note>
+    <title>Syntax rules</title>
+    <ul>
+      <li><p>The header goes inside parentheses <c>( )</c>.</p></li>
+      <li><p>The three parts are split up by two semicolons <c>;</c>. There is no semicolon after the update.</p></li>
+      <li><p>The body goes inside curly braces <c>{ }</c>. Indent the body so it is easy to see what is inside the loop.</p></li>
+      <li><p>Use <c>let</c> for the loop variable, not <c>const</c>, because the update changes it.</p></li>
+    </ul>
+  </note>
+
+  <note>
+    <title>On the test you will see <c>var</c></title>
+    <p>
+      This book writes <c>for (let i = 0; i &lt; 5; i++)</c>.
+      Operation Spark's tests write <c>for (var i = 0; i &lt; 5; i++)</c>.
+      <c>var</c> is the old way to make a variable.
+      In the loops on the test, it works the same as <c>let</c>, so read <c>var</c> as if it said <c>let</c>.
+    </p>
+  </note>
+
+  <p><alert>Check your understanding</alert></p>
+
+  <exercise xml:id="mc-for-loop-body" label="mc-for-loop-body">
+    <statement>
+      <p>Which part of a <c>for</c> loop is the code that gets repeated?</p>
+    </statement>
+    <choices>
+      <choice correct="yes">
+        <statement><p>The body, inside the curly braces</p></statement>
+        <feedback><p>Right. Everything inside the curly braces runs once per pass.</p></feedback>
+      </choice>
+      <choice>
+        <statement><p>The start</p></statement>
+        <feedback><p>No. The start runs only once, before the loop begins.</p></feedback>
+      </choice>
+      <choice>
+        <statement><p>The condition</p></statement>
+        <feedback><p>No. The condition decides <em>whether</em> to run the code again. It is not the code that is repeated.</p></feedback>
+      </choice>
+      <choice>
+        <statement><p>The whole header, inside the parentheses</p></statement>
+        <feedback><p>No. The header controls the loop. The repeated code is somewhere else.</p></feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <exercise xml:id="mc-for-loop-start-once" label="mc-for-loop-start-once">
+    <statement>
+      <p>How many times does the start part of a <c>for</c> loop run?</p>
+    </statement>
+    <choices>
+      <choice correct="yes">
+        <statement><p>Once, before the first pass</p></statement>
+        <feedback><p>Right. If the start ran every pass, the loop variable would reset each time and the loop would never end.</p></feedback>
+      </choice>
+      <choice>
+        <statement><p>Once before every pass</p></statement>
+        <feedback><p>No. That is the condition. The start only sets the loop variable up.</p></feedback>
+      </choice>
+      <choice>
+        <statement><p>Once after every pass</p></statement>
+        <feedback><p>No. That is the update.</p></feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <exercise xml:id="mc-for-loop-update" label="mc-for-loop-update">
+    <statement>
+      <p>What does <c>i++</c> do?</p>
+    </statement>
+    <choices>
+      <choice correct="yes">
+        <statement><p>Adds 1 to <c>i</c></p></statement>
+        <feedback><p>Right. It is the same as <c>i = i + 1</c>.</p></feedback>
+      </choice>
+      <choice>
+        <statement><p>Adds 2 to <c>i</c></p></statement>
+        <feedback><p>No. Two plus signs does not mean <q>add 2</q>.</p></feedback>
+      </choice>
+      <choice>
+        <statement><p>Checks if <c>i</c> is a positive number</p></statement>
+        <feedback><p>No. <c>i++</c> changes <c>i</c>. It does not check anything.</p></feedback>
+      </choice>
+      <choice>
+        <statement><p>Prints <c>i</c></p></statement>
+        <feedback><p>No. Only <c>console.log</c> prints.</p></feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <exercise xml:id="parsons-for-loop-hello" label="parsons-for-loop-hello">
+    <statement>
+      <p>Put the blocks in order to make a loop that prints <c>"Hello"</c> ten times.</p>
+    </statement>
+    <blocks>
+      <block><cline>for (let i = 0; i &lt; 10; i++) {</cline></block>
+      <block><cline>  console.log("Hello");</cline></block>
+      <block><cline>}</cline></block>
+      <block correct="no"><cline>for (let i = 0; i &lt; 10; i++);</cline></block>
+      <block correct="no"><cline>for (let i = 0, i &lt; 10, i++) {</cline></block>
+    </blocks>
+  </exercise>
+</section>

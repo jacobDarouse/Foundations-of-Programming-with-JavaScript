@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Adapted from FOPP "Introduction: Iteration". GNU FDL 1.3; see ch-loops.ptx. -->
+<section xml:id="sec-intro-iteration">
+  <title>Introduction: Iteration</title>
+
+  <p>
+    A basic building block of all programs is the power to repeat some code over and over.
+    A bank updates the balance of millions of customers every night.
+    A video game moves every character on the screen sixty times a second.
+    A school sends a message to every parent on a list.
+    Nobody writes that code out one line per customer, character, or parent.
+    They write it once and tell the computer to repeat it.
+  </p>
+
+  <p>
+    In programming, repeating code is called <term>iteration</term>.
+    Each time the code runs is one <term>iteration</term>, or one <term>pass</term>.
+    The tool we use to repeat code is called a <term>loop</term>.
+  </p>
+
+  <note>
+    <title>The test's definition</title>
+    <p>
+      Operation Spark's test defines a loop this way:
+      <q>In order to repeat a sequence of code a specific number of times, we can use a loop.</q>
+      Learn those words for the test.
+      Later you will meet loops that repeat until something happens, without a set number of times, but this is the idea to start with.
+    </p>
+  </note>
+
+  <p>
+    Here is a program that prints the same message five times without a loop.
+  </p>
+
+  <activity xml:id="try-loops-intro-1">
+    <title>Five Lines by Hand</title>
+    <program xml:id="ac-loops-intro-1" interactive="activecode" language="javascript">
+    <code>
+console.log("Practice makes perfect");
+console.log("Practice makes perfect");
+console.log("Practice makes perfect");
+console.log("Practice makes perfect");
+console.log("Practice makes perfect");
+    </code>
+  </program>
+  </activity>
+
+  <p>
+    That works, but think about what happens if you need it 500 times.
+    Or if you need to change the message: now you have to change it in five places,
+    and if you miss one, your program is wrong.
+  </p>
+
+  <p>
+    Here is the same program with a loop.
+    You will learn how every part of it works in the next section.
+    For now, run it and see that it does the same thing.
+  </p>
+
+  <activity xml:id="try-loops-intro-2">
+    <title>Five Lines with a Loop</title>
+    <program xml:id="ac-loops-intro-2" interactive="activecode" language="javascript">
+    <code>
+for (let i = 0; i &lt; 5; i++) {
+  console.log("Practice makes perfect");
+}
+    </code>
+  </program>
+  </activity>
+
+  <p>
+    To print the message 500 times, you change one number.
+    To change the message, you change one line.
+    Programmers have a name for this idea: <term>D.R.Y.</term>, which stands for
+    <q>Don't Repeat Yourself.</q>
+    When you see the same lines of code over and over, that is a sign you need a loop.
+  </p>
+
+  <p>
+    Loops are also how we work with arrays.
+    In the last chapter you used bracket notation to get one element at a time:
+    <c>names[0]</c>, <c>names[1]</c>, <c>names[2]</c>.
+    With a loop, you can visit every element in an array, no matter how long it is.
+  </p>
+</section>
