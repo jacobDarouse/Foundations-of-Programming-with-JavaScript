@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<backmatter xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Back Matter</title>
+
+  <appendix xml:id="original-front-matter">
+    <title>From the Original Book</title>
+    <p>These sections come from <pubtitle>Foundations of Python Programming</pubtitle>.
+    The license names them as Invariant Sections, so they appear here word for word.
+    They talk about Python because the original book used Python.</p>
+    <xi:include href="./back/fopp-foreword.ptx" />
+    <xi:include href="./back/fopp-preface.ptx" />
+    <xi:include href="./back/fopp-contributors.ptx" />
+  </appendix>
+
+  <appendix xml:id="history">
+    <title>History</title>
+    <p><ul>
+      <li><p><alert>2026.</alert> <pubtitle>Foundations of Programming with JavaScript</pubtitle>.
+      Adapted by Jacob Darouse, with help from Claude (Anthropic). Published by Jacob Darouse.
+      Moved the book from Python to JavaScript and reordered it to follow the
+      Fundamentals of Software Development course.</p></li>
+      <li><p><pubtitle>Foundations of Python Programming</pubtitle>.
+      By Brad Miller, Paul Resnick, Lauren Murphy, Jeffrey Elkner, Peter Wentworth, Allen B. Downey, Chris Meyers, and Dario Mitchell.
+      Published on Runestone Academy.
+      Built on <pubtitle>How to Think Like a Computer Scientist: Interactive Edition</pubtitle> by Brad Miller and David Ranum,
+      and the original <pubtitle>How to Think Like a Computer Scientist</pubtitle> by Jeffrey Elkner, Allen B. Downey, and Chris Meyers.</p></li>
+    </ul></p>
+  </appendix>
+
+  <xi:include href="./back/gfdl.ptx" />
+</backmatter>

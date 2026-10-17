@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="sec-running-code">
+  <title>Running Code in This Book</title>
+
+  <p>This book has code boxes you can run right on the page.
+  Click a <q>Try It</q> title to open its code box. Press <term>Save &amp; Run</term> to run the code.
+  What the code prints shows up below the box.
+  You can change the code and run it again as many times as you like.
+  Your browser saves your code each time you run it, so it is still there when you come back on the same computer.</p>
+
+  <activity xml:id="try-first-program">
+    <title>Hello, World</title>
+    <program xml:id="ac-first-program" interactive="activecode" language="javascript">
+      <code>
+console.log("Hello, World!");
+      </code>
+    </program>
+  </activity>
+
+  <p>Open the <q>Try It</q> box above, change the message inside the quotes, and press <term>Save &amp; Run</term> again.</p>
+
+  <exercise xml:id="mc-running-code" label="mc-running-code">
+    <statement>
+      <p>Where does the output of <c>console.log</c> show up in this book?</p>
+    </statement>
+    <choices>
+      <choice correct="yes">
+        <statement><p>Below the code box, after you press Save &amp; Run.</p></statement>
+        <feedback><p>Right. The output shows up below the box.</p></feedback>
+      </choice>
+      <choice>
+        <statement><p>In a new browser tab.</p></statement>
+        <feedback><p>No. Everything stays on this page.</p></feedback>
+      </choice>
+      <choice>
+        <statement><p>Nowhere. The code only runs when you save the page.</p></statement>
+        <feedback><p>No. The code runs when you press Save &amp; Run.</p></feedback>
+      </choice>
+    </choices>
+  </exercise>
+</section>

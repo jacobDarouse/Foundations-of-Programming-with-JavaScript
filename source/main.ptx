@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <xi:include href="./docinfo.ptx" />
+
+  <book xml:id="fopjs">
+    <title>Foundations of Programming with JavaScript</title>
+    <subtitle>An adaptation of Foundations of Python Programming</subtitle>
+
+    <xi:include href="./frontmatter.ptx" />
+
+    <part xml:id="unit-00">
+      <title>Getting Started</title>
+      <xi:include href="./unit00/ch-how-programs-work.ptx" />
+    </part>
+
+    <xi:include href="./backmatter.ptx" />
+  </book>
+</pretext>

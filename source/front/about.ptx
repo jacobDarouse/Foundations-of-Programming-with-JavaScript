@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preface xml:id="about-this-book">
+  <title>About This Book</title>
+
+  <p>This book teaches the basics of programming. It uses JavaScript, but the ideas carry over to any language.
+  It also covers the small amount of HTML and CSS you need to build a web page.</p>
+
+  <p>The book follows the order of the Fundamentals of Software Development course.
+  Each unit matches one of the course tests. A unit starts with the core chapters, which cover what the test covers.
+  Optional chapters at the end of a unit go further.</p>
+
+  <p>The book started as <pubtitle>Foundations of Python Programming</pubtitle>, a free textbook on Runestone Academy.
+  Its foreword, prefaces, and contributor list are kept, unchanged, at the back of this book.</p>
+
+  <note xml:id="notice">
+    <title>Please Read</title>
+    <p>This book is not made, approved, or endorsed by Operation Spark.
+    It was written with help from AI and may contain mistakes.</p>
+  </note>
+</preface>
