@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Adapted from FOPP "Infinite Loops" (More About Iteration). GNU FDL 1.3; see ch-loops.ptx. -->
+<section xml:id="sec-infinite-loops">
+  <title>&#x1F469;&#x200D;&#x1F4BB; Infinite Loops</title>
+
+  <p>
+    A loop stops when its condition becomes <c>false</c>.
+    So what if the condition never becomes <c>false</c>?
+    Then the loop never stops.
+    This is called an <term>infinite loop</term>, and it is one of the most common mistakes in programming.
+  </p>
+
+  <p>
+    Look at this loop. <alert>Do not run it.</alert>
+  </p>
+
+  <program language="javascript">
+    <code>
+for (let i = 1; i &lt;= 20; i--) {
+  console.log(i);
+}
+    </code>
+  </program>
+
+  <p>
+    Trace it: <c>i</c> starts at 1. The condition <c>1 &lt;= 20</c> is <c>true</c>.
+    The update <c>i--</c> makes <c>i</c> 0. <c>0 &lt;= 20</c> is <c>true</c>. Then -1, then -2...
+    The update moves <c>i</c> <em>away</em> from the stop number, so <c>i &lt;= 20</c> stays <c>true</c> forever.
+  </p>
+
+  <p>
+    To spot an infinite loop, ask one question:
+    <alert>Does the update move the loop variable toward the stop, or away from it?</alert>
+  </p>
+
+  <ul>
+    <li><p>Counting up (<c>&lt;</c> or <c>&lt;=</c>) needs an update that makes <c>i</c> bigger, like <c>i++</c>.</p></li>
+    <li><p>Counting down (<c>&gt;</c> or <c>&gt;=</c>) needs an update that makes <c>i</c> smaller, like <c>i--</c>.</p></li>
+  </ul>
+
+  <p>
+    If the update and the condition do not match, the loop runs forever.
+  </p>
+
+  <note>
+    <title>If you do run an infinite loop</title>
+    <p>
+      The browser tab will freeze, because it is busy running your loop and has no time for anything else.
+      Close the tab or reload the page, then fix the loop before you run it again.
+      The code boxes in this book save your work, so you will not lose it.
+    </p>
+  </note>
+
+  <p><alert>Check your understanding</alert></p>
+
+  <exercise xml:id="mc-infinite-which" label="mc-infinite-which">
+    <statement>
+      <p>What happens when this loop runs?</p>
+      <program language="javascript">
+        <code>
+for (let i = 1; i &gt; 0; i++) {
+  console.log(i);
+}
+        </code>
+      </program>
+    </statement>
+    <choices>
+      <choice correct="yes">
+        <statement><p>It never stops.</p></statement>
+        <feedback><p>Right. <c>i</c> only gets bigger, so <c>i &gt; 0</c> is always <c>true</c>.</p></feedback>
+      </choice>
+      <choice>
+        <statement><p>It prints 1, then stops.</p></statement>
+        <feedback><p>No. After the first pass, <c>i</c> is 2, and <c>2 &gt; 0</c> is still <c>true</c>.</p></feedback>
+      </choice>
+      <choice>
+        <statement><p>It prints nothing.</p></statement>
+        <feedback><p>No. <c>1 &gt; 0</c> is <c>true</c> at the first check, so the body runs.</p></feedback>
+      </choice>
+      <choice>
+        <statement><p>It counts down from 1 to 0, then stops.</p></statement>
+        <feedback><p>No. <c>i++</c> makes <c>i</c> bigger, not smaller.</p></feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <exercise xml:id="mc-infinite-fix" label="mc-infinite-fix">
+    <statement>
+      <p>This loop is meant to count down from 10 to 1, but it never stops. Which change fixes it?</p>
+      <program language="javascript">
+        <code>
+for (let i = 10; i &gt;= 1; i++) {
+  console.log(i);
+}
+        </code>
+      </program>
+    </statement>
+    <choices>
+      <choice correct="yes">
+        <statement><p>Change <c>i++</c> to <c>i--</c></p></statement>
+        <feedback><p>Right. Now <c>i</c> moves toward 1, and the loop stops after 1.</p></feedback>
+      </choice>
+      <choice>
+        <statement><p>Change <c>i &gt;= 1</c> to <c>i &lt;= 1</c></p></statement>
+        <feedback><p>No. Then <c>10 &lt;= 1</c> is <c>false</c> at the first check, so nothing prints.</p></feedback>
+      </choice>
+      <choice>
+        <statement><p>Change <c>let i = 10</c> to <c>let i = 1</c></p></statement>
+        <feedback><p>No. <c>i</c> would still get bigger forever.</p></feedback>
+      </choice>
+    </choices>
+  </exercise>
+</section>

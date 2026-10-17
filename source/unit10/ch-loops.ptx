@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Adapted from "Foundations of Python Programming" (Iteration chapter),
+  Copyright (C) Brad Miller, David Ranum, Jeffrey Elkner, Peter Wentworth,
+  Allen B. Downey, Chris Meyers, Dario Mitchell, and Paul Resnick.
+  Changed in 2026 by Jacob Darouse, with Claude (Anthropic), to teach
+  JavaScript instead of Python.
+
+  Permission is granted to copy, distribute and/or modify this document under
+  the terms of the GNU Free Documentation License, Version 1.3 or any later
+  version published by the Free Software Foundation; with Invariant Sections
+  being Forward, Prefaces, and Contributor List, no Front-Cover Texts, and no
+  Back-Cover Texts. A copy of the license is included in the section entitled
+  "GNU Free Documentation License".
+-->
+<chapter xml:id="ch-loops" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>For Loops</title>
+
+  <xi:include href="./sec-intro-iteration.ptx"/>
+  <xi:include href="./sec-for-loop.ptx"/>
+  <xi:include href="./sec-flow-of-execution.ptx"/>
+  <xi:include href="./sec-start-stop-step.ptx"/>
+  <xi:include href="./sec-infinite-loops.ptx"/>
+  <xi:include href="./sec-arrays-by-index.ptx"/>
+  <xi:include href="./sec-changing-arrays.ptx"/>
+  <xi:include href="./sec-accumulator.ptx"/>
+  <xi:include href="./sec-accumulator-conditionals.ptx"/>
+  <xi:include href="./sec-wp-printing.ptx"/>
+  <xi:include href="./sec-wp-naming.ptx"/>
+  <xi:include href="./sec-glossary.ptx"/>
+  <xi:include href="./sec-exercises.ptx"/>
+  <xi:include href="./sec-code-quiz-practice.ptx"/>
+</chapter>

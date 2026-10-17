@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- New code quiz practice, written in the course's task style. GNU FDL 1.3; see ch-loops.ptx. -->
+<exercises xml:id="sec-loops-code-quiz">
+  <title>Code Quiz Practice</title>
+
+  <introduction>
+    <p>
+      These are the same kind of problems you will see on a code quiz.
+      Each one tells you what to name the function, because the quiz checks your function by its name.
+      Everything else is up to you.
+      Test each function by calling it with a few different values.
+    </p>
+  </introduction>
+
+  <exercise xml:id="cq-loops-1" label="cq-loops-1">
+    <statement>
+      <p>Write a function called <c>lapCounter</c> that counts the laps of a race, starting at 1 and going up to the number of laps it is given. Print each count followed by the word <c>"lap"</c>.</p>
+    </statement>
+    <program language="javascript" interactive="activecode" xml:id="ac-cq-loops-1"><code></code></program>
+  </exercise>
+
+  <exercise xml:id="cq-loops-2" label="cq-loops-2">
+    <statement>
+      <p>Write a function called <c>countdown</c> that counts down from the number it is given to 1, printing each number. After the countdown, print <c>"Blast off!"</c> once.</p>
+    </statement>
+    <program language="javascript" interactive="activecode" xml:id="ac-cq-loops-2"><code></code></program>
+  </exercise>
+
+  <exercise xml:id="cq-loops-3" label="cq-loops-3">
+    <statement>
+      <p>Write a function called <c>printRoster</c> that is given an array of names and prints each name.</p>
+    </statement>
+    <program language="javascript" interactive="activecode" xml:id="ac-cq-loops-3"><code></code></program>
+  </exercise>
+
+  <exercise xml:id="cq-loops-4" label="cq-loops-4">
+    <statement>
+      <p>Write a function called <c>addBonus</c> that is given an array of scores and a bonus amount. Add the bonus to every score in the array. The function does not need to return or print anything.</p>
+    </statement>
+    <program language="javascript" interactive="activecode" xml:id="ac-cq-loops-4"><code></code></program>
+  </exercise>
+
+  <exercise xml:id="cq-loops-5" label="cq-loops-5">
+    <statement>
+      <p>Write a function called <c>totalPoints</c> that is given an array of numbers and returns their total.</p>
+    </statement>
+    <program language="javascript" interactive="activecode" xml:id="ac-cq-loops-5"><code></code></program>
+  </exercise>
+
+  <exercise xml:id="cq-loops-6" label="cq-loops-6">
+    <statement>
+      <p>Write a function called <c>countPassing</c> that is given an array of test scores and returns how many of them are 70 or higher.</p>
+    </statement>
+    <program language="javascript" interactive="activecode" xml:id="ac-cq-loops-6"><code></code></program>
+  </exercise>
+</exercises>
